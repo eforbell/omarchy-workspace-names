@@ -24,7 +24,7 @@ and avoids resurrecting stale project names.
 ## Install from a published Git repository
 
 ```bash
-omarchy plugin add https://github.com/YOUR-USER/omarchy-workspace-names.git --enable
+omarchy plugin add https://github.com/eforbell/omarchy-workspace-names.git --enable
 omarchy plugin disable omarchy.workspaces
 omarchy plugin enable workspace-names --section left
 ```
