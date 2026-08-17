@@ -23,9 +23,13 @@ BarWidget {
     return !name || name === String(workspace.id) ? String(workspace.id) : String(workspace.id) + ":" + name
   }
 
+  // Match Omarchy Quattro's built-in workspaces widget exactly. Bar.run
+  // routes through the bar host, while shellQuote preserves the Lua dispatcher
+  // expression as one hyprctl argument.
   function focus(id) {
-    Quickshell.execDetached(["hyprctl", "dispatch",
-      "hl.dsp.focus({ workspace = " + JSON.stringify(String(id)) + " })"])
+    if (!root.bar) return
+    root.bar.run("hyprctl dispatch "
+      + Util.shellQuote("hl.dsp.focus({ workspace = \"" + id + "\" })"))
   }
 
   function edit(id) {
