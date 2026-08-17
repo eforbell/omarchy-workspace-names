@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "workspace-names",
+  "name": "Workspace Names",
+  "version": "0.1.0",
+  "author": "forbell",
+  "license": "MIT",
+  "description": "Name, fuzzy-find, and jump to Hyprland workspaces from the Omarchy bar.",
+  "kinds": ["bar-widget", "overlay"],
+  "keepLoaded": true,
+  "entryPoints": {
+    "barWidget": "BarWidget.qml",
+    "overlay": "WorkspacePicker.qml"
+  },
+  "barWidget": {
+    "displayName": "Workspace Names",
+    "description": "Named workspace labels with a fuzzy workspace picker.",
+    "category": "Compositor",
+    "allowMultiple": false,
+    "defaultSection": "left"
+  }
+}
