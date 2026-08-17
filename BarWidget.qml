@@ -26,7 +26,7 @@ BarWidget {
   // Match Omarchy Quattro's built-in workspaces widget exactly. Bar.run
   // routes through the bar host, while shellQuote preserves the Lua dispatcher
   // expression as one hyprctl argument.
-  function focus(id) {
+  function focusWorkspace(id) {
     if (!root.bar) return
     root.bar.run("hyprctl dispatch "
       + Util.shellQuote("hl.dsp.focus({ workspace = \"" + id + "\" })"))
@@ -60,7 +60,7 @@ BarWidget {
         fixedHeight: root.barSize
         onPressed: function(button) {
           if (button === Qt.RightButton) root.edit(modelData.id)
-          else root.focus(modelData.id)
+          else root.focusWorkspace(modelData.id)
         }
       }
     }
