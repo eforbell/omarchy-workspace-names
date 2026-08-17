@@ -24,7 +24,8 @@ BarWidget {
   }
 
   function focus(id) {
-    Quickshell.execDetached(["hyprctl", "dispatch", "workspace", String(id)])
+    Quickshell.execDetached(["hyprctl", "dispatch",
+      "hl.dsp.focus({ workspace = " + JSON.stringify(String(id)) + " })"])
   }
 
   function edit(id) {

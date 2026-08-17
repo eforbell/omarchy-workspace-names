@@ -75,14 +75,18 @@ Item {
   }
   function submit() {
     if (root.mode === "edit") {
-      Quickshell.execDetached(["hyprctl", "dispatch", "renameworkspace", String(root.editWorkspaceId), root.filterText.trim()])
+      var nextName = root.filterText.trim() || String(root.editWorkspaceId)
+      Quickshell.execDetached(["hyprctl", "dispatch",
+        "hl.dsp.workspace.rename({ workspace = " + JSON.stringify(String(root.editWorkspaceId))
+          + ", name = " + JSON.stringify(nextName) + " })"])
       root.dismiss()
       return
     }
     if (!root.filteredRows.length) return
     var id = root.filteredRows[root.selectedIndex].id
     root.dismiss()
-    Quickshell.execDetached(["hyprctl", "dispatch", "workspace", String(id)])
+    Quickshell.execDetached(["hyprctl", "dispatch",
+      "hl.dsp.focus({ workspace = " + JSON.stringify(String(id)) + " })"])
   }
 
   PanelWindow {
