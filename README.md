@@ -6,8 +6,7 @@ workspace numbers.
 - Name the current workspace with **Super+Ctrl+Shift+W**.
 - Fuzzy-find and jump to a live workspace with **Super+Ctrl+W**.
 - See names directly in the Omarchy bar (`2:homeSource bug 123`).
-- Click an inactive label to jump to it; click the active label (or right-click
-  any label) to rename it.
+- Left-click any label to jump to it; right-click a label to rename it.
 - Keep names in Hyprland's own compositor-session state through the
   `renameworkspace` dispatcher. There is no second database to get stale.
 
@@ -107,8 +106,8 @@ hyprctl configerrors
 4. Press **Super+Ctrl+W**, type `bug123`, and press Enter. Confirm Hyprland jumps
    to the second workspace.
 5. Open the picker and search by workspace number and monitor name.
-6. Click an inactive bar label and confirm it becomes active.
-7. Click the active label, erase its name, and press Enter. Confirm the bar
+6. Left-click an inactive bar label and confirm it becomes active.
+7. Right-click that label, erase its name, and press Enter. Confirm the bar
    returns to the numeric label.
 8. Press Escape in both overlays and confirm no action occurs.
 
@@ -142,8 +141,8 @@ state.
 | Up / Down | Change selection |
 | Enter | Jump or save |
 | Escape | Cancel |
-| Click inactive bar label | Jump |
-| Click active / right-click label | Rename |
+| Left-click any bar label | Jump |
+| Right-click any bar label | Rename |
 
 ## Design notes
 
