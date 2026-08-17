@@ -56,7 +56,7 @@ BarWidget {
         fixedHeight: root.barSize
         onPressed: function(button) {
           if (button === Qt.RightButton) root.edit(modelData.id)
-          else if (button === Qt.LeftButton) root.focus(modelData.id)
+          else root.focus(modelData.id)
         }
       }
     }
