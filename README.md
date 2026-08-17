@@ -33,9 +33,12 @@ The first command reviews, clones, validates, and enables the plugin using
 Omarchy's plugin manager. Disabling `omarchy.workspaces` prevents duplicate
 stock number labels.
 
-Add these two lines to `~/.config/hypr/bindings.lua`:
+Add these lines to `~/.config/hypr/bindings.lua`. Omarchy assigns
+`Super+Ctrl+W` to its Network panel by default, so the explicit `hl.unbind`
+prevents both actions from firing on the same shortcut:
 
 ```lua
+hl.unbind("SUPER + CTRL + W")
 o.bind("SUPER + CTRL + W", "Find named workspace", "omarchy-shell shell summon workspace-names '{\"mode\":\"navigate\"}'")
 o.bind("SUPER + CTRL + SHIFT + W", "Name current workspace", "omarchy-shell shell summon workspace-names '{\"mode\":\"edit\"}'")
 ```
@@ -87,7 +90,7 @@ Then repeat the three installation commands above.
 
 ### 3. Add the keybindings
 
-Append the two `o.bind(...)` lines from the installation section to
+Append the `hl.unbind(...)` and two `o.bind(...)` lines from the installation section to
 `~/.config/hypr/bindings.lua`, then run:
 
 ```bash
@@ -157,5 +160,5 @@ omarchy plugin remove workspace-names
 omarchy plugin enable omarchy.workspaces --section left
 ```
 
-Remove the two custom `o.bind(...)` lines from
+Remove the custom `hl.unbind(...)` and two `o.bind(...)` lines from
 `~/.config/hypr/bindings.lua`, then run `hyprctl reload`.
